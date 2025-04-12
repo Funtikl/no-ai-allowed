@@ -1,103 +1,128 @@
-import Image from "next/image";
+import Link from "next/link";
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <>
+      {/* HERO SECTION */}
+      <section className="hero">
+        <div className="hero-overlay">
+          <h2 className="typewriter">
+            <span>Human Creativity is Unscripted</span>
+          </h2>
+          <p className="hero-desc">
+            Where emotions trump algorithms and every work breathes
+            authenticity.
+          </p>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+          <div className="top-stories">
+            <article className="top-story">
+              <h3 className="story-title">Late Night Tales</h3>
+              <p>
+                When the city sleeps, the mind wanders: dreams, confessions, and
+                midnight coffees.
+              </p>
+            </article>
+            <article className="top-story">
+              <h3 className="story-title">Haiku of Dawn</h3>
+              <p>
+                A short poem rising with the sun, one line at a time, purely
+                from the heart.
+              </p>
+            </article>
+            <article className="top-story">
+              <h3 className="story-title">Capturing Raindrops</h3>
+              <p>
+                A photo journey through stormy nights and water-kissed
+                windowsills.
+              </p>
+            </article>
+          </div>
         </div>
+      </section>
+
+      {/* MAIN CONTENT (CARDS) */}
+      <main>
+        <section className="cards-container">
+          <Link href="/stories" className="card-link">
+            <article className="card" id="stories">
+              <h3>📚 Stories</h3>
+              <p>
+                Fiction, diaries, and everything brimming with unpredictable
+                human thought.
+              </p>
+            </article>
+          </Link>
+
+          <Link href="/poetry" className="card-link">
+            <article className="card" id="poetry">
+              <h3>✒️ Poetry</h3>
+              <p>Haikus, sonnets, or free verse – let the pen roam free.</p>
+            </article>
+          </Link>
+
+          <Link href="/photos" className="card-link">
+            <article className="card" id="photos">
+              <h3>📸 Photography</h3>
+              <p>Fleeting moments that only a real eye can capture.</p>
+            </article>
+          </Link>
+
+          <Link href="/humor" className="card-link">
+            <article className="card" id="humor">
+              <h3>🤣 Humor</h3>
+              <p>
+                Jokes, satire, and the occasional pun. No AI dad jokes here.
+              </p>
+            </article>
+          </Link>
+        </section>
+        <section className="footer-extra">
+          <div className="social-feedback">
+            <h2>Stay Connected</h2>
+            <p>Follow us online or leave your feedback.</p>
+            <div className="social-icons">
+              <a href="#" className="social-link">
+                Twitter
+              </a>
+              <a href="#" className="social-link">
+                Instagram
+              </a>
+              <a href="#" className="social-link">
+                Facebook
+              </a>
+            </div>
+            <h3>Leave Your Feedback</h3>
+            <form className="feedback-form">
+              <textarea
+                rows="4"
+                placeholder="Share your thoughts..."
+              ></textarea>
+              <button type="submit">Submit</button>
+            </form>
+          </div>
+
+          <div className="recent-posts">
+            <h2>What to Read Next?</h2>
+            <div className="posts-grid">
+              <article className="post-item">
+                <h4>Rooftop Reflections</h4>
+                <p>
+                  A short story about stargazing on the highest building in
+                  town.
+                </p>
+              </article>
+              <article className="post-item">
+                <h4>Poem for Rainy Days</h4>
+                <p>A moody verse capturing the lullaby of droplets.</p>
+              </article>
+              <article className="post-item">
+                <h4>Sunset Shots</h4>
+                <p>Photo series of luminous evenings across the globe.</p>
+              </article>
+            </div>
+          </div>
+        </section>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+    </>
   );
 }

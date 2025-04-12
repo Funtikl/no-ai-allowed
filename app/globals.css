@@ -1,26 +1,347 @@
-@import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* 1. RESET & GLOBAL STYLES */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Шрифт для эффекта печатной машинки */
+body {
+  font-family: "Courier New", Courier, monospace;
+  background-color: #f8f6f1;
+  color: #333;
+  line-height: 1.5;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* 2. HEADER - градиент + типографика */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, #2c2c2c, #191919);
+}
+
+.branding {
+  display: flex;
+  flex-direction: column;
+}
+
+.site-title {
+  font-size: 2rem;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  color: #ccc;
+  margin-top: 0.25rem;
+  font-style: italic;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+nav ul li a:hover {
+  color: #ffbdbd;
+}
+
+/* 3. HERO */
+.hero {
+  position: relative;
+  min-height: 60vh;
+  background: linear-gradient(135deg, #2c2c2c, #191919);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-overlay {
+  position: relative;
+  padding: 2rem;
+  text-align: center;
+  color: #fff;
+  background-color: rgba(25, 25, 25, 0.5);
+  max-width: 900px;
+  width: 100%;
+  margin: 3rem;
+  border-radius: 10px;
+}
+
+/* Зацикленная анимация typing */
+.typewriter span {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid #fff;
+  width: 30ch; /* задаём длину для steps(...) */
+  animation: typing 6s steps(26, end) infinite,
+    blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  0% {
+    width: 0ch;
+  }
+  25% {
+    width: 30ch;
+  }
+  50% {
+    width: 30ch;
+  }
+  75% {
+    width: 0ch;
+  }
+  100% {
+    width: 0ch;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@keyframes blink-caret {
+  50% {
+    border-color: transparent;
+  }
+}
+
+.hero-desc {
+  font-size: 1.1rem;
+  margin-top: 1rem;
+  max-width: 35rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* TOP STORIES */
+.top-stories {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.top-story {
+  flex: 1 1 250px;
+  background-color: #f8f6f1;
+  color: #333;
+  padding: 1rem;
+  border-radius: 5px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.top-story:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.story-title {
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+/* 4. MAIN CONTENT (CARD GRID) */
+main {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+}
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background-color: #fff;
+  border: 1px solid #eaeaea;
+  padding: 2rem;
+  border-radius: 8px;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.4rem;
+  color: #111;
+}
+
+.card p {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* 5. EXTRA SECTION: SOCIAL, FEEDBACK & RECENT POSTS */
+.footer-extra {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+}
+
+/* Social & Feedback */
+.social-feedback {
+  flex: 1 1 300px;
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #eaeaea;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.social-feedback:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.social-feedback h2 {
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+}
+
+.social-feedback p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: #555;
+}
+
+.social-icons {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.social-link {
+  background-color: #191919;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+.social-link:hover {
+  background-color: #ffbdbd;
+}
+
+.feedback-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.feedback-form textarea {
+  font-family: inherit;
+  padding: 0.75rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  resize: vertical;
+}
+
+.feedback-form button {
+  align-self: flex-start;
+  padding: 0.5rem 1.2rem;
+  background-color: #191919;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.feedback-form button:hover {
+  background-color: #333;
+}
+
+/* Recent Posts */
+.recent-posts {
+  flex: 1 1 400px;
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #eaeaea;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.recent-posts:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.recent-posts h2 {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+}
+
+.posts-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.post-item {
+  background-color: #f8f6f1;
+  padding: 1rem;
+  border-radius: 5px;
+}
+.post-item h4 {
+  margin-bottom: 0.4rem;
+  font-size: 1.2rem;
+  color: #111;
+}
+.post-item p {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* 6. FOOTER */
+footer {
+  text-align: center;
+  background-color: #2c2c2c;
+  color: #bbb;
+  padding: 1rem;
+  font-size: 0.9rem;
+
+  position: relative;
+}
+
+footer p {
+  margin: 0;
+}
+
+.card-link {
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s ease;
+}
+
+.card-link:hover {
+  transform: translateY(-3px);
+}
+
+/* Sticky footer layout */
+.layout-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.page-content {
+  flex: 1; /* тянется */
 }
