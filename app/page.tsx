@@ -94,7 +94,7 @@ export default function HomePage() {
             <h3>Leave Your Feedback</h3>
             <form className="feedback-form">
               <textarea
-                rows="4"
+                rows={4}
                 placeholder="Share your thoughts..."
               ></textarea>
               <button type="submit">Submit</button>
